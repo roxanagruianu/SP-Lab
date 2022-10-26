@@ -1,25 +1,29 @@
-public class Chapter{
-    String name;
-    List<SubChapter> subchapters = new ArrayList<SubChapter>();
+import java.util.ArrayList;
+import java.util.List;
 
-    public Chapter(String name) {
-        this.name = name;
-    }
-
-    public int createSubChapter(String title){
-        SubChapter subc = new SubChapter(title);
-        subchapters.add(subc);
-        return subchapters.size()-1;
-    }
-
-    public SubChapter getSubChapter(int index){
-        return subchapters.get(index);
-    }
-
-    public void print(){
-        System.out.println(name);
-        for(int i=0;i<subchapters.size();i++){
-            subchapters.get(i).print();
-        }
-    }
+public class Chapter {
+	String name;
+	List<SubChapter> subchapters = new ArrayList<>();
+	
+	public Chapter(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public void print() {
+		System.out.println("Chapter: " + name);
+		subchapters.forEach((s) ->{
+			s.print();
+		});
+	}
+	
+	public int createSubChapter(String name) {
+		SubChapter s = new SubChapter(name);
+		subchapters.add(s);
+		return subchapters.indexOf(s);
+	}
+	
+	public SubChapter getSubChapter(int index) {
+		return subchapters.get(index);
+	}
 }
