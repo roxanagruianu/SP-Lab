@@ -1,30 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class SubChapter {
-    String name;
-    List<Paragraph> paragraphs = new ArrayList<Paragraph>();
-    List<Image> images = new ArrayList<Image>();
-    List<Table> tables = new ArrayList<Table>();
-
-    public SubChapter(String name) {
-        this.name = name;
-    }
-
-    public void createNewParagraph(Paragraph p) {
-        paragraphs.add(p);
-    }
-    public void createNewImage(Image i) {
-        images.add(i);
-    }
-    public void createNewTable(Table t) {
-        tables.add(t);
-    }
-
-    public void print(){
-        System.out.println("Subchapter: "+name);
-        for(int i=0;i<paragraphs.size();i++)
-            paragraphs.get(i).print();
-        for(int i=0;i<images.size();i++)
-            images.get(i).print();
-        for(int i=0;i<tables.size();i++)
-            tables.get(i).print();
-    }
+	String name;
+	List<Element> elements = new ArrayList<>();
+	
+	public SubChapter(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public void createNewParagraph(String text) {
+		Paragraph p = new Paragraph(text);
+		elements.add(p);
+	}
+	
+	public void createNewImage(String name) {
+		Image i = new Image(name);
+		elements.add(i);
+	}
+	
+	public void createNewTable(String title) {
+		Table t = new Table(title);
+		elements.add(t);
+	}
+	
+	public void print() {
+		System.out.println("Subchapter: " + name);
+		elements.forEach((e) ->{
+			e.print();
+		});
+	}
 }
