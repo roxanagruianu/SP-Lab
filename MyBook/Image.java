@@ -1,10 +1,17 @@
+import java.util.concurrent.TimeUnit;
 
-public class Image implements Element{
+public class Image implements Element, Picture{
 	String url;
+	String content;
 	
-	public Image(String imageName) {
+	public Image(String url) {
 		super();
-		this.url = imageName;
+		this.url = url;
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -28,6 +35,21 @@ public class Image implements Element{
 	public Element get(int i) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String url() {
+		return url;
+	}
+
+	@Override
+	public int dim() {
+		return 0;
+	}
+
+	@Override
+	public String content() {
+		return content;
 	}
 	
 }
