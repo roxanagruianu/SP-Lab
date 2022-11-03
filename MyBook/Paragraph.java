@@ -1,6 +1,7 @@
 
 public class Paragraph implements Element {
 	String text;
+	AlignStrategy textAlignment = null;
 
 	public Paragraph(String text) {
 		super();
@@ -9,7 +10,12 @@ public class Paragraph implements Element {
 
 	@Override
 	public void print() {
-		System.out.println("Paragraph: " + text);		
+		if(textAlignment == null) {
+			System.out.println("Paragraph: "+ text);
+		}
+		else {
+			textAlignment.render(this, text);
+		}
 	}
 
 	@Override
@@ -28,6 +34,10 @@ public class Paragraph implements Element {
 	public Element get(int i) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void setAlignStrategy(AlignStrategy a) {
+		this.textAlignment = a;
 	}
 	
 }
