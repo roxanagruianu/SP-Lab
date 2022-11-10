@@ -1,5 +1,4 @@
-
-public class Paragraph implements Element {
+public class Paragraph implements Element, Visitee {
 	String text;
 	AlignStrategy textAlignment = null;
 
@@ -38,6 +37,10 @@ public class Paragraph implements Element {
 	
 	public void setAlignStrategy(AlignStrategy a) {
 		this.textAlignment = a;
+	}
+
+	public void accept(Visitor visitor) {
+		visitor.visitParagraph(this);
 	}
 	
 }
