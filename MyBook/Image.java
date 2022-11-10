@@ -1,6 +1,6 @@
 import java.util.concurrent.TimeUnit;
 
-public class Image implements Element, Picture{
+public class Image implements Element, Picture, Visitee{
 	String url;
 	String content;
 	
@@ -50,6 +50,10 @@ public class Image implements Element, Picture{
 	@Override
 	public String content() {
 		return content;
+	}
+
+	public void accept(Visitor visitor) {
+		visitor.visitImage(this);
 	}
 	
 }
