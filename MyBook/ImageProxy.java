@@ -1,4 +1,4 @@
-public class ImageProxy implements Picture, Element{
+public class ImageProxy implements Picture, Element, Visitee{
 	String url;
 	Image realImage;
 	
@@ -53,6 +53,10 @@ public class ImageProxy implements Picture, Element{
 	public Element get(int i) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void accept(Visitor visitor) {
+		visitor.visitImageProxy(this);
 	}
 
 }
