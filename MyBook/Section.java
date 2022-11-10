@@ -1,37 +1,36 @@
-import java.util.ArrayList;
-import java.util.List;
 
-public class Section implements Element{
+public class Table implements Element, Visitee{
 	String title;
-	List<Element> elements = new ArrayList<>();
-	
-	public Section(String title) {
+
+	public Table(String title) {
 		super();
 		this.title = title;
 	}
 
 	@Override
 	public void print() {
-		System.out.println(title);
-		elements.forEach((e) -> {
-			e.print();
-		});
+		System.out.println("Table with Title: "+ title);	
 	}
 
 	@Override
 	public void add(Element e) {
-		elements.add(e);	
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void remove(Element e) {
-		int index = elements.indexOf(e);
-		elements.remove(index);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public Element get(int i) {
-		return elements.get(i);
+		// TODO Auto-generated method stub
+		return null;
 	}
-		
+
+	public void accept(Visitor visitor) {
+		visitor.visitTable(this);
+	}
 }
