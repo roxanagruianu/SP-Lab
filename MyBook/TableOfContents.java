@@ -1,5 +1,5 @@
 
-public class TableOfContents implements Element{
+public class TableOfContents implements Element, Visitee{
 	
 	@Override
 	public void print() {
@@ -23,6 +23,10 @@ public class TableOfContents implements Element{
 	public Element get(int i) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void accept(Visitor visitor) {
+		visitor.visitTableOfContents(this);
 	}
 	
 }
