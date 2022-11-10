@@ -1,5 +1,5 @@
 
-public class Table implements Element{
+public class Table implements Element, Visitee{
 	String title;
 
 	public Table(String title) {
@@ -28,5 +28,9 @@ public class Table implements Element{
 	public Element get(int i) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void accept(Visitor visitor) {
+		visitor.visitTable(this);
 	}
 }
