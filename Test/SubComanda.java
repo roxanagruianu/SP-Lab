@@ -30,4 +30,8 @@ public class SubComanda implements FelDeMancare{
 		});
 	}	
 	
+	public void addFel(FelDeMancare f) {
+		mancare.add(f);
+	}
+	
 }
