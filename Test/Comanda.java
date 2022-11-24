@@ -32,5 +32,13 @@ public class Comanda implements FelDeMancare{
 			s.accept(visitee);
 		});
 	}
+	
+	public void addFel(FelDeMancare f) {
+		mancare.add(f);
+	}
+	
+	public void addSubComanda(SubComanda s) {
+		subcomenzi.add(s);
+	}
 
 }
