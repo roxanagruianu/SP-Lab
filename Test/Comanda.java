@@ -7,6 +7,11 @@ public class Comanda implements FelDeMancare{
 	List<FelDeMancare> mancare = new ArrayList<>();
 	List<SubComanda> subcomenzi = new ArrayList<>();
 	
+	public Comanda(String nume) {
+		super();
+		this.nume = nume;
+	}
+
 	@Override
 	public void print() {
 		System.out.println("Comanda: "+ nume);
