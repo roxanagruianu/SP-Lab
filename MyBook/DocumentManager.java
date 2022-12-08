@@ -1,7 +1,7 @@
 
 public class DocumentManager {
 	private Book book;
-	private static DocumentManager instance = new DocumentManager();
+	private static DocumentManager instance = null;
 	
 	private DocumentManager() {}
 
@@ -14,6 +14,9 @@ public class DocumentManager {
 	}
 	
 	public static DocumentManager getInstance() {
+		if(instance == null) {
+			instance = new DocumentManager();
+		}
 		return instance;
 	}
 }
