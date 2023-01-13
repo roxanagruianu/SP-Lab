@@ -1,5 +1,5 @@
 
-public class Table implements Element, Visitee{
+public class Table implements Element, Visitee, BookSaveVisitee{
 	String title;
 
 	public Table(String title) {
@@ -32,5 +32,10 @@ public class Table implements Element, Visitee{
 
 	public void accept(Visitor visitor) {
 		visitor.visitTable(this);
+	}
+
+	@Override
+	public void save(BookSaveVisitor bookSaveVisitor) {
+		bookSaveVisitor.saveTable(this);
 	}
 }
