@@ -1,4 +1,4 @@
-public class Paragraph implements Element, Visitee {
+public class Paragraph implements Element, Visitee, BookSaveVisitee {
 	String text;
 	AlignStrategy textAlignment = null;
 
@@ -41,6 +41,11 @@ public class Paragraph implements Element, Visitee {
 
 	public void accept(Visitor visitor) {
 		visitor.visitParagraph(this);
+	}
+
+	@Override
+	public void save(BookSaveVisitor bookSaveVisitor) {
+		bookSaveVisitor.saveParagraph(this);
 	}
 	
 }
