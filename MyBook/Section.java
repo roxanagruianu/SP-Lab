@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section implements Element, Visitee{
+public class Section implements Element, Visitee, BookSaveVisitee{
 	String title;
 	List<Element> elements = new ArrayList<>();
 	
@@ -49,6 +49,24 @@ public class Section implements Element, Visitee{
 				visitor.visitParagraph(null);
 			}
 		});
+	}
+
+	@Override
+	public void save(BookSaveVisitor bookSaveVisitor) {
+		elements.forEach((e) -> {
+			if(e instanceof Image) {
+				bookSaveVisitor.saveImage(null);
+			}
+			else if(e instanceof ImageProxy) {
+				bookSaveVisitor.saveImageProxy(null);
+			}
+			else if(e instanceof Table) {
+				bookSaveVisitor.saveTable(null);
+			}
+			else if(e instanceof Paragraph) {
+				bookSaveVisitor.saveParagraph(null);
+			}
+		});	
 	}
 	
 }
