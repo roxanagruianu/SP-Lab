@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class TableOfContents implements Element, Visitee{
+public class TableOfContents implements Element, Visitee, BookSaveVisitee{
 	
 	List<Element> tocontent = new ArrayList<>();
 	List<Integer> pages = new ArrayList<>();
@@ -37,6 +37,11 @@ public class TableOfContents implements Element, Visitee{
 	public void add(Element e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void save(BookSaveVisitor bookSaveVisitor) {
+		bookSaveVisitor.saveTableOfContents(this);
 	}
 	
 }
