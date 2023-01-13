@@ -1,4 +1,4 @@
-public class ImageProxy implements Picture, Element, Visitee{
+public class ImageProxy implements Picture, Element, Visitee, BookSaveVisitee{
 	String url;
 	Image realImage;
 	
@@ -57,6 +57,11 @@ public class ImageProxy implements Picture, Element, Visitee{
 
 	public void accept(Visitor visitor) {
 		visitor.visitImageProxy(this);
+	}
+
+	@Override
+	public void save(BookSaveVisitor bookSaveVisitor) {
+		bookSaveVisitor.saveImageProxy(this);
 	}
 
 }
